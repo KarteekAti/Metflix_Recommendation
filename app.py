@@ -7,10 +7,8 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 import random ,os
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import bz2
 
-with bz2.BZ2File('similarity.pbz2', 'rb') as f:
-    similarity = pickle.load(f)
+
 new_df = pickle.load(open('data.sav','rb'))
 rec_df = pickle.load(open('movie_data.sav','rb'))
 app = Flask(__name__,instance_relative_config=False)
@@ -94,9 +92,12 @@ genre = [
         "name": "Western"
     }
 ]
+cv = CountVectorizer(stop_words='english',min_df=2)
+data = cv.fit_transform(new_df['corpus']).toarray()
+similarity = cosine_similarity(data)
+
 
 def recommend(movie):
-    # similarity = get_similarity()
     movie_index = new_df[new_df['id'] == int(movie)].index[0]
     movie_list = sorted(list(enumerate(similarity[movie_index])),reverse=True,key= lambda x:x[1])[1:19]
     rec_movies = []
