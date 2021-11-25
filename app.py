@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import bz2
 
-similarity = pickle.load(bz2.BZ2File('similarity.pbz2','rb'))
+similarity = pickle.load(bz2.BZ2File('similarity.bz2','rb'))
 new_df = pickle.load(open('data.sav','rb'))
 rec_df = pickle.load(open('movie_data.sav','rb'))
 app = Flask(__name__,instance_relative_config=False)
