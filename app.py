@@ -7,9 +7,9 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 import random ,os
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import gzip
+import bz2
 
-with gzip.open('similarity.gzip', 'rb') as f:
+with bz2.BZ2File('similarity.pbz2', 'rb') as f:
     similarity = pickle.load(f)
 new_df = pickle.load(open('data.sav','rb'))
 rec_df = pickle.load(open('movie_data.sav','rb'))
