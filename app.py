@@ -8,7 +8,7 @@ import random ,os
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-
+similarity = pickle.load(open('similarity.sav','rb'))
 new_df = pickle.load(open('data.sav','rb'))
 rec_df = pickle.load(open('movie_data.sav','rb'))
 app = Flask(__name__,instance_relative_config=False)
@@ -92,9 +92,7 @@ genre = [
         "name": "Western"
     }
 ]
-cv = CountVectorizer(stop_words='english',min_df=2)
-data = cv.fit_transform(new_df['corpus']).toarray()
-similarity = cosine_similarity(data)
+
 
 
 def recommend(movie):
