@@ -5,8 +5,11 @@ from flask import Flask ,render_template, url_for, redirect, request, session, j
 import json
 from werkzeug.middleware.proxy_fix import ProxyFix
 import random ,os
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import bz2
 
-similarity = pickle.load(open('similarity.sav','rb'))
+similarity = pickle.load(bz2.BZ2File('similarity.pbz2','rb'))
 new_df = pickle.load(open('data.sav','rb'))
 rec_df = pickle.load(open('movie_data.sav','rb'))
 app = Flask(__name__,instance_relative_config=False)
@@ -92,6 +95,7 @@ genre = [
 ]
 
 def recommend(movie):
+    # similarity = get_similarity()
     movie_index = new_df[new_df['id'] == int(movie)].index[0]
     movie_list = sorted(list(enumerate(similarity[movie_index])),reverse=True,key= lambda x:x[1])[1:19]
     rec_movies = []

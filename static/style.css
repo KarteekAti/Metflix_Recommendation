@@ -152,9 +152,9 @@ h2,.row_title{
 }
 
 .row1 {
-  column-width: 165px;
+  column-width: 155px;
   height: 300px;
-  padding-left: 05px;
+  padding-left: 10px;
   margin-bottom: 2vw;
   overflow-y: hidden;
   overflow-x: scroll;
