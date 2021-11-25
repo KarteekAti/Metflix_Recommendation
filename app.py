@@ -1,12 +1,10 @@
-import pandas as pd
-import numpy as np
+
 import pickle
-from flask import Flask ,render_template, url_for, redirect, request, session, jsonify, flash, Blueprint
-import json
+from flask import Flask ,render_template, request, jsonify,
+
 from werkzeug.middleware.proxy_fix import ProxyFix
 import random ,os
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+
 
 similarity = pickle.load(open('similarity.sav','rb'))
 new_df = pickle.load(open('data.sav','rb'))
