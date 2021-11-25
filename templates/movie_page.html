@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+    <title>Metflix</title>
+</head>
+<body onload="myFunction()">
+    <div class="nav">
+        <div class="nav__left">
+          <img class="nav_logo" src="{{ url_for('static', filename='logo.png') }}" alt="Metflix">
+        </div>
+        <div class="nav__right">
+            <input id='tags' type="text" placeholder="Search..">
+        </div>
+    </div>
+
+    <header class="showcase">
+        <div class="showcase-content">
+            <h1 id='name'></h1>
+            <p id='description'></p>
+        </div>
+        <div class="showcase-end"></div>
+    </header>
+    <div id="movie-info"></div>
+    <div id="movie"></div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='movie.js') }}"></script>
+
+
+</html>
