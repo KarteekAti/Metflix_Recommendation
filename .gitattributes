@@ -1,2 +1,0 @@
-*.sav filter=lfs diff=lfs merge=lfs -text
-*.pbz2 filter=lfs diff=lfs merge=lfs -text
