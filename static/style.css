@@ -155,6 +155,7 @@ h2,.row_title{
   column-width: 155px;
   height: 300px;
   padding-left: 10px;
+  margin-top: 10px;
   margin-bottom: 2vw;
   overflow-y: hidden;
   overflow-x: scroll;
@@ -167,9 +168,7 @@ h2,.row_title{
   
   width: 154px;
 }
-.cast_img img {
-  object-fit:contain;
-}
+
  .cast-name{
   max-width: 80%;
   height:63px;
@@ -213,7 +212,7 @@ h3{
   }
 
   .row1 {
-    column-width: max(28vw,110px);
+    column-width: 155px;
     height: 300px;
     padding-left: 10px;
     margin-bottom: 2vw;

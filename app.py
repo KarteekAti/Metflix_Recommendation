@@ -1,7 +1,6 @@
 
 import pickle
 from flask import Flask ,render_template, request, jsonify
-
 from werkzeug.middleware.proxy_fix import ProxyFix
 import random ,os
 
