@@ -86,8 +86,8 @@ genre = [
 ]
 
 def recommend(movie):
-    similarity = pickle.load(open('similarity.sav','rb'))
-    new_df = pickle.load(open('data.sav','rb'))
+    similarity = pickle.load(open('similarity.pkl','rb'))
+    new_df = pickle.load(open('data.pkl','rb'))
     movie_index = new_df[new_df['id'] == int(movie)].index[0]
     movie_list = sorted(list(enumerate(similarity[movie_index])),reverse=True,key= lambda x:x[1])[1:19]
     rec_movies = []
@@ -103,13 +103,13 @@ def index():
 
 @app.route('/random')
 def random_movie():
-    new_df = pickle.load(open('data.sav','rb'))
+    new_df = pickle.load(open('data.pkl','rb'))
     random_id = new_df.iloc[random.randint(0,9303)][0]
     return str(random_id)
 
 @app.route('/movie_list')
 def movie_list():
-    rec_df = pickle.load(open('movie_data.sav','rb'))
+    rec_df = pickle.load(open('movie_data.pkl','rb'))
     movie_list = []
     for i in genre:
         movie_list.append({ 
@@ -125,7 +125,7 @@ def return_movie(id):
 
 @app.route('/list',methods=['GET','POST'])
 def return_list():
-    new_df = pickle.load(open('data.sav','rb'))
+    new_df = pickle.load(open('data.pkl','rb'))
     if request.method == 'GET':
         return jsonify(new_df['title'].to_list())
     if request.method == 'POST':
