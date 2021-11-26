@@ -1,12 +1,7 @@
-
 import pickle
 from flask import Flask ,render_template, request, jsonify
 from werkzeug.middleware.proxy_fix import ProxyFix
 import random ,os
-
-
-
-
 
 app = Flask(__name__,instance_relative_config=False)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1 ,x_proto=1)
@@ -89,8 +84,6 @@ genre = [
         "name": "Western"
     }
 ]
-
-
 
 def recommend(movie):
     similarity = pickle.load(open('similarity.sav','rb'))
