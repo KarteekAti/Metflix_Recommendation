@@ -1,7 +1,7 @@
 <h1 align="center">Metlfix: Recommendation System</h1>
 <p align="center">The Purpose of Metflix is to help people watch their favorite genre of movies. The Recommendation Model uses "Bag of Words" and "Cosine-Similarity" to suggest movies, this project uses TMDB's api to get the posters and cast data.</p>
 
-https://metflix-recommendation.herokuapp.com/
+http://karteekati.pythonanywhere.com/
 
 ## 📱 Screenshots
 
